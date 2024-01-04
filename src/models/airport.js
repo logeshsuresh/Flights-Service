@@ -12,10 +12,17 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       this.belongsTo(models.City, {
-        foreignKey: cityId,
-        onDelete: 'CASCADE',
-        onUpdate: 'CASCADE'
-      })
+        foreignKey: 'cityId',
+        onDelete: 'CASCADE'
+      });
+      this.hasMany(models.Flight, {
+        foreignKey: 'code',
+        onDelete: 'CASCADE'
+      });
+      this.hasMany(models.Flight, {
+        foreignKey: 'code',
+        onDelete: 'CASCADE'
+      });
     }
   }
   Airport.init({
@@ -31,11 +38,11 @@ module.exports = (sequelize, DataTypes) => {
     },
     address: {
       type: DataTypes.STRING,
-      unique: true
+      unique: true,
     },
     cityId: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      allowNull: false
     }
   }, {
     sequelize,
