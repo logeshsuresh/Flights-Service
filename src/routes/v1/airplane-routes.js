@@ -5,12 +5,23 @@ const { AirplaneMiddlewares } = require('../../middlewares');
 
 const router = express.Router();
 
-// POST : /api/v1/airplanes
+// /api/v1/airplanes POST
 router.post('/', 
-            AirplaneMiddlewares.validateCreateRequest,
-            AirplaneController.createAirplane);
-// GET : /api/v1/airplanes
-router.get('/',
-            AirplaneController.getAirplanes);
+        AirplaneMiddlewares.validateCreateRequest,
+        AirplaneController.createAirplane);
+
+// /api/v1/airplanes GET
+router.get('/', 
+        AirplaneController.getAirplanes);
+
+// /api/v1/airplanes/:id GET
+router.get('/:id', 
+        AirplaneController.getAirplane);
+// /api/v1/airplanes PATCH
+router.patch('/',
+        AirplaneController.updateAirplane);
+// /api/v1/airplanes/:id DELETE
+router.delete('/:id', 
+        AirplaneController.destroyAirplane);
 
 module.exports = router;
