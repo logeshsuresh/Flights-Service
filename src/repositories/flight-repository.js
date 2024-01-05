@@ -6,18 +6,12 @@ class FlightRepository extends CrudRepository {
         super(Flight);
     }
 
-    async getAllFlights(filter) {
-        try {
-            const response = await Flight.findAll({
-                where: filter
-            });
-            return response;
-        } catch (error) {
-            console.log("******************");
-            console.log(error);
-            console.log("****************");
-        }
-        
+    async getAllFlights(filter, sort) {
+        const response = await Flight.findAll({
+            where: filter,
+            order: sort
+        });
+        return response;    
     }
 }
 
