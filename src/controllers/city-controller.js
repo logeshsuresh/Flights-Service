@@ -9,7 +9,6 @@ const { SuccessResponse, ErrorResponse } = require('../utils/common');
  */
 async function createCity(req, res) {
     try {
-        console.log(req.body.name);
         const city = await CityService.createCity({
             name: req.body.name
         });
@@ -19,15 +18,10 @@ async function createCity(req, res) {
                 .json(SuccessResponse);
     } catch(error) {
         ErrorResponse.error = error;
-        console.log(error);
         return res
                 .status(error.statusCode)
                 .json(ErrorResponse);
     }
-}
-
-module.exports = {
-    createCity
 }
 
 /**
