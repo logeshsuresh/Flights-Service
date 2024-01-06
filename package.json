@@ -1,7 +1,7 @@
 {
-  "name": "base_node_js_folder",
+  "name": "flights_search_service",
   "version": "1.0.0",
-  "description": "Basic node.js project folder",
+  "description": "Flights Search Service",
   "main": "index.js",
   "scripts": {},
   "keywords": [],
