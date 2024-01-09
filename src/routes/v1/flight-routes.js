@@ -14,12 +14,17 @@ router.post('/',
 router.get('/', 
         FlightController.getAllFlights);
 
-// /api/v1/flights/:id
+// /api/v1/flights/:id GET
 router.get('/:id',
         FlightController.getFlight);
 
-// /api/v1/flights/:id
+// /api/v1/flights/:id PATCH
 router.patch('/:id',
         FlightController.updateFlight);
+
+// /api/v1/flights/seats PATC
+router.patch('/:id/seats', 
+        FlightMiddlewares.validateUpdateSeatsRequest, 
+        FlightController.updateSeats);
 
 module.exports = router;
