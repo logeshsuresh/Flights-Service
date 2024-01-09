@@ -14,7 +14,12 @@ router.post('/',
 router.get('/', 
         FlightController.getAllFlights);
 
+// /api/v1/flights/:id
 router.get('/:id',
         FlightController.getFlight);
+
+// /api/v1/flights/:id
+router.patch('/:id',
+        FlightController.updateFlight);
 
 module.exports = router;

@@ -72,8 +72,31 @@ async function getFlight(req, res) {
     }
 }
 
+/**
+ * PATCH : /flights/:id
+ * req-body {data: {seats: 10}}
+ */
+async function updateFlight(req, res) {
+    try {
+        const flight = await FlightService.updateFlight(
+            req.params.id,
+            req.body.data
+        );
+        SuccessResponse.data = flight;
+        return res
+                .status(StatusCodes.OK)
+                .json(SuccessResponse);
+    } catch (error) {
+        ErrorResponse.error = error;
+        return res
+                .status(error.statusCode)
+                .json(ErrorResponse);
+    }
+}
+
 module.exports = {
     createFlight,
     getAllFlights,
-    getFlight
+    getFlight,
+    updateFlight
 }

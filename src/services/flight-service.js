@@ -79,8 +79,22 @@ async function getFlight(id) {
     }
 }
 
+async function updateFlight(id, data) {
+    try {
+        const flight = await flightRepository.update(id, data);
+        return flight;
+    } catch (error) {
+        console.log(error);
+        if (error.statusCode == StatusCodes.NOT_FOUND) {
+            throw new AppError('The flight you requested is not present', error.statusCode); 
+        }
+        throw new AppError('Cannot update the flights', StatusCodes.INTERNAL_SERVER_ERROR);
+    }
+}
+
 module.exports = {
     createFlight,
     getAllFlights,
-    getFlight
+    getFlight,
+    updateFlight
 }
