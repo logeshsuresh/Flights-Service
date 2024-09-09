@@ -9,6 +9,9 @@ The Flights Service is designed for managing flight data and enabling user searc
 - Integration Ready: Designed to work with the `Flights API Gateway` & `Flights Booking Service` for a comprehensive travel management solution.
 - Flexible Filtering: Provides advanced search filters to refine flight search results.
 
+## High Level Design
+![High Level Design](https://github.com/logeshsuresh/Flights-Service/blob/master/Flights-HLD.png)
+
 ## Setup
 Follow these steps to set up the project locally:
 
