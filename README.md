@@ -86,7 +86,7 @@ The src folder contains all the source code for the project:
 - `utils/`: Provides helper methods and utility functions.
 
 ## Usage
-To start the API Gateway, use:
+To start the Flights Service, use:
 
 ```
 npm start
